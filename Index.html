@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Series</title>
+        <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
+ <!-- add styles bootstrap -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <body style="background-color: #f5f6f6">
+		<iframe id="sign-up-frame" class="sign-up-frame" scrolling="no" src="http://localhost:59741/"></iframe>
+        <header>
+            <nav class="my_nav navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand my_nbr" href="#">SERIES</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control  form-control-sm" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-sm" type="submit"> <img src="img/SearchIcon.png" alt=""></button>
+                    </form>
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Sign in</a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="btn my_btn" type="button" id="sign-up-btn">Sign Up</button>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div id="carouselImage" class="my_carousel carousel slide w-100" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselImage" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselImage" data-slide-to="1"></li>
+                    <li data-target="#carouselImage" data-slide-to="2"></li>
+                </ol>
+                
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="post-image-header" id="little_fires" style="background-image:url('img/little_fires.jpg')"></div>                       
+                        <div class="carousel-caption d-none d-md-block">                           
+                            <p>Drama</p>
+                            <img src="img/stars1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+						<div class="post-image-header" id="devs" style="background-image:url('img/devs-11.png')"></div>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>Devs</h1>
+                            <p>Philosophical Science fiction intellectual sci-fi </p>
+                            <img src="img/stars2.png" alt="">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+						<div class="post-image-header" id="dark" style="background-image:url('img/Dark.jpg')"></div>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1>Dark</h1>
+                            <p>Science fiction thriller</p>
+                            <img src="img/stars3.png" alt="">
+                        </div>
+                    </div>
+                </div>   
+                      
+                <div class="btn-group" role="group" aria-label="">
+                    <button type="button" class="btn my_btn ">Watch Now</button>
+                    <button type="button" class="btn btn-outline-light ">View Info</button>
+                    <button type="button" class="btn">+ Favorites</button>
+                    <button type="button" class="btn btn-sm"><img src="img/More.png" alt=""></button>
+                </div>           
+            </div>
+        </header>
+        <main>
+            <div class="container-fluid main">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <a class="nav-item nav-link active" id="" data-toggle="tab" href="#" role="tab">Trending</a>
+                      <a class="nav-item nav-link" id="" data-toggle="tab" href="#" role="tab">Top Rated</a>
+                      <a class="nav-item nav-link" id="" data-toggle="tab" href="#" role="tab">New Arrivals</a>
+                      <a class="nav-item nav-link" id="" data-toggle="tab" href="#" role="tab">Trailers</a>
+                      <a class="nav-item nav-link" id="" data-toggle="tab" href="#" role="tab">Coming Soon</a>
+                      <a class="nav-item nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Genre</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Drama</a>
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Horror</a>
+                            <a class="dropdown-item" href="#">Historical</a>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="row no-gutters films">
+                    <div class="col-lg-3 col-md-6 col-sm-12 px-1">
+						<div class="post-image" id="manifest" style="background-image:url('img/manifest.jpg')"></div>
+                        <div id="description" class="row py-3 pr-3">
+                            <div class="d-flex flex-column col">
+                                <h5>Manifest</h5>
+                                <span>Supernatural drama</span>
+							</div>
+                            <div class="d-flex align-items-center rat">
+                                <div class="post-img" style="background-image:url('img/film_r_1.png')"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 px-1">
+						<div class="post-image" id="murder" style="background-image:url('img/How-To-Get-Away-With-Murder.jpg')"></div>
+                        <div id="description" class="row py-3 pr-3">
+                            <div class="d-flex flex-column col">
+                                <h5>How to Get Away with Murder</h5>
+                                <span> Legal thriller</span>
+                            </div>
+                            <div class="d-flex align-items-center rat">
+                                <div class="post-img" style="background-image:url('img/film_r_3.png')"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 px-1">
+						<div class="post-image" id="you" style="background-image:url('img/you.png')"></div>
+                        <div id="description" class="row py-3 pr-3">
+                            <div class="d-flex flex-column col">
+                                <h5>You</h5>
+                                <span>Psychological thriller</span>
+                            </div>
+                            <div class="d-flex align-items-center rat">
+                                <div class="post-img" style="background-image:url('img/film_r_3.png')"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 px-1">
+						<div class="post-image" id="scandal" style="background-image:url('img/scandal.jpg')"></div>
+                        <div id="description" class="row py-3 pr-3">
+                            <div class="d-flex flex-column col">
+                                <h5>Scandal</h5>
+                                <span>Drama</span>
+                            </div>
+                            <div class="d-flex align-items-center rat">
+                                <div class="post-img" style="background-image:url('img/film_r_4.png')"></div>
+                            </div>
+                        </div>                            
+                    </div>        
+                </div>
+
+                <div class="row no-gutters films">
+                    <div class="col-lg-3 col-md-6 col-sm-12 px-1" id="trouble">
+                        <div class="post-image" id="trouble" style="background-image:url('img/good_trouble.jpg')"></div>
+                        <div id="description" class="row py-3 pr-3">
+                            <div class="d-flex flex-column col">
+                                <h5>Good trouble</h5>
+                                <span>Drama</span></div>
+                            <div class="d-flex align-items-center rat">
+                                <div class="post-img" style="background-image:url('img/film_r_5.png')"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 px-1">
+                        <div class="post-image" id="valley" style="background-image:url('img/Silicon_valley.jpg')"></div>
+                        <div id="description" class="row py-3 pr-3">
+                            <div class="d-flex flex-column col">
+                                <h5>Silicon Valley</h5>
+                                <span>Comedy</span>
+                            </div>
+                            <div class="d-flex align-items-center rat">
+                                <div class="post-img" style="background-image:url('img/film_r_6.png')"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 px-1">
+                        <div class="post-image" id="rayan" style="background-image:url('img/jack_rayan.jpg')"></div>
+                        <div id="description" class="row py-3 pr-3">
+                            <div class="d-flex flex-column col">
+                                <h5>Jack Rayan</h5>
+                                <span>Dramatic thriller</span>
+                            </div>
+                            <div class="d-flex align-items-center rat">
+                                <div class="post-img" style="background-image:url('img/film_r_7.png')"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 px-1">
+                        <div class="post-image" id="morning" style="background-image:url('img/show.jpg')"></div>
+                        <div id="description" class="row py-3 pr-3">
+                            <div class="d-flex flex-column col">
+                                <h5>The morning show</h5>
+                                <span>Drama</span>
+                            </div>
+                            <div class="d-flex align-items-center rat">
+                                <div class="post-img" style="background-image:url('img/film_r_8.png')"></div>
+                            </div>
+                        </div>                            
+                    </div>        
+                </div>
+
+               
+<!-- <iframe id="subscribe-frame" class="subscribe-frame" scrolling="no" src="http://localhost:59741/"></iframe> -->
+                <div class="row no-gutters info">
+                    <div class="col-12 px-1">
+                        <div class="post-image" style="background-image:url('img/information.png')">
+                            <div id="dark">
+                                <h3>Receive information on the latest hit movies straight to your inbox.</h3>
+                                <button type="button" class="btn my_btn" id="subscribe-btn">Subscribe!</button>
+                            </div>                       
+                        </div>
+                    </div>
+                </div>
+    
+            </div>           
+        </main>
+        <footer>
+            <div class="container-fluid footer">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12 f_nav">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Terms of Service</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 logo">
+                        <h2><b>Series</b></h2>
+                        <span>Copyright © 2020 Series. All Rights Reserved.</span>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 icons">
+                        <div class="btn-group" role="group" aria-label="">                           
+                            <button type="button" class="btn icon" style="background-image:url('img/Facebook.png')"></button>
+                            <button type="button" class="btn icon" style="background-image:url('img/Twitter.png')"></button>
+                            <button type="button" class="btn icon" style="background-image:url('img/Pinterest.png')"></button>
+                            <button type="button" class="btn icon" style="background-image:url('img/Instagram.png')"></button>
+                            <button type="button" class="btn icon" style="background-image:url('img/YouTube.png')"></button>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+ <!-- add jquery library -->
+  	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	    	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	    	crossorigin="anonymous"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+             <!-- add javascript bootstrap -->
+        <script src="js/main.js"></script>
+        <script src="js/carousel.js"></script>
+    </body>
+</html>

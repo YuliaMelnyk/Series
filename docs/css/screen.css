@@ -1,0 +1,94 @@
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1em;
+  line-height: 1.6em;
+  color: #444; }
+  .content a {
+    border-bottom: 1px dotted #0066cc;
+    color: #0066cc;
+    text-decoration: none; }
+  .content a:hover {
+    color: #2288ee;
+    border-bottom: 1px dotted #2288ee; }
+
+#film-images {
+  background-image: url("../assets/img/background.jpg");
+  background-size: 100% auto;
+  background-repeat: repeat-y;
+}
+
+@media (max-width: 1000px) {
+  .pure-table {
+    font-size: 90%; } }
+@media (max-width: 580px) {
+  .pure-table {
+    font-size: 75%; } }
+@media (max-width: 480px) {
+  .pure-table {
+    font-size: 60%; } }
+@media (max-width: 580px) {
+  .pure-table td, .pure-table th {
+    padding: .3em .8em; } }
+@media (max-width: 480px) {
+  .pure-table td, .pure-table th {
+    padding: .1em .6em; } }
+
+@media (max-width: 768px) {
+  #film-images {
+    display: none; } }
+
+a.logo {
+  border-bottom: 0; }
+
+a:hover.logo {
+  border-bottom: 0; }
+
+table {
+  width: 100%; }
+
+td.score1 {
+  text-align: center;
+  background-color: #FFD5D8;
+  color: black; }
+
+td.score2 {
+  text-align: center;
+  background-color: #FFF6CD;
+  color: black; }
+
+td.score3 {
+  text-align: center;
+  background-color: #D9EACA;
+  color: black; }
+
+td.score4 {
+  text-align: center;
+  background-color: #BCDDA1;
+  color: black; }
+
+td.score5 {
+  text-align: center;
+  background-color: #FDC131;
+  color: #480000;
+  font-weight: bold; }
+
+.arrow {
+  color: grey;
+  font-size: small; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; }
+
+.logo img {
+  height: 24px;
+  display: inline; }
+
+#analytics {
+  margin-bottom: 1em; }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
