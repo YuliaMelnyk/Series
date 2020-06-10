@@ -10,7 +10,61 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <script>
+                // put values from xml to html   
+                var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function () {
+                  if (this.readyState == 4 && this.status == 200) {
+                    troubleTitle(this);
+                    troubleDesc(this);
+                    troubletImg(this);
+                  }
+              };
+              xhttp.open("GET", "series.xml", true);
+              xhttp.send();
+      
+              // function for get Trouble title
+              function troubleTitle(xml) {
+                  var x, i, txt, xmlDoc;
+                  xmlDoc = xml.responseXML;
+                  txt = "";
+                  x = xmlDoc.getElementsByTagName("title");
+                  for (i = 0; i < x.length; i++) {
+                      if (i == 7) {
+                          txt += x[i].childNodes[0].nodeValue + "<br>";
+                      }
+                  }
+                  document.getElementById("troubleTitle").innerHTML = txt;
+              }
+      
+              // function for get Trouble description
+              function troubleDesc(xml) {
+                  var x, i, txt, xmlDoc;
+                  xmlDoc = xml.responseXML;
+                  txt = "";
+                  x = xmlDoc.getElementsByTagName("review");
+                  for (i = 0; i < x.length; i++) {
+                      if (i == 7) {
+                          txt += x[i].childNodes[0].nodeValue + "<br>";
+                      }
+                  }
+                  document.getElementById("troubleDesc").innerHTML = txt;
+              }
+              // function for get Trouble image link
+              function troubletImg(xml) {
+                  var x, i, txt, xmlDoc;
+                  xmlDoc = xml.responseXML;
+                  txt = "";
+                  x = xmlDoc.getElementsByTagName("image");
+                  for (i = 0; i < x.length; i++) {
+                      if (i == 7) {
+                          txt += x[i].childNodes[0].nodeValue + "<br>";
+                      }
+                  }
+                  document.getElementById("troubletImg").getAttribute("src").innerHTML = txt;
+              }
+          </script>
     </head>
 
    
@@ -23,7 +77,6 @@
                     <h1 class="page-content--title">
                         <div class="colums is-spaced--medium">
                             <div class="column" id="troubleTitle">
-                                'Good Trouble': How the Freeform Drama Puts a New Spin on 'The Fosters'
                             </div>
                         </div>
                     </h1>
@@ -35,7 +88,7 @@
     <div class="column is-9">
         <div class="page-content--block">
             <figure class="page-content--primary-image">
-                <img id="troubletImg" src="https://nypdecider.files.wordpress.com/2019/01/good-trouble-149651_9246.jpg?quality=90&strip=all&w=1284&h=856&crop=1">
+                <img id="troubletImg" src="https://i.ytimg.com/vi/UUFIAqzkvAI/maxresdefault.jpg">
             </figure>
         </div>
     </div>
@@ -47,13 +100,6 @@
     <section class="column is-6">
         <section class="page-content--block_editor-content js--reframe">
             <p class="description" id="troubleDesc">
-                <p>
-                    Good Trouble is what happens when a teen drama transmogrifies into a workplace dramedy — moments of youthful levity between friends become bogged down by triggeringly realistic scenes of professional peril. I appreciate that this show depicts a clerkship for once, instead of another litigious white-shoe firm. But when Callie becomes embroiled in a ripped-from-the-headlines Black Lives Matter case, I bristled at the surface-deep social justice angle, which comes across more as pandering fan service to a left-leaning audience than as an nuanced exploration of a real-life human rights issue. Mariana's storyline fares better, the details of her workplace harassment feeling akin to a blistering Silicon Valley exposé, but I found myself dreading any scenes set at their respective offices, unwilling to accept from my entertainment what I could skim on my Newsfeed. I just wanted them to get back to their fun little commune and hang out with all their new alternative friends.  
-                 </p><p>
-                    The women's shabby-chic art deco home setting, the Coterie, is where this show really thrives. The Adams Fosters sisters fit right in with a diverse array of twenty-something artists, hipsters and influencers, including, among others: Alice (Sherry Cola), a down-to-earth Asian-American lesbian still in love with her demanding ex; Gael (Tommy Martinez), a brooding bisexual graphic artist and sculptor; and Davya (Emma Hunton), a brash plus-size social media guru unhappy at her Teach for America gig. When the show allows these young folks to just live in their uncertainty without artificially dangling them into sociopolitical relevancy, it shines. The episode where Alice struggles with her commitment as the commune's house manager (while generously buying toilet paper for everyone out of her own pocket) rings far truer than an idealistic former teenage convict trying to fight the good fight through lawyerly benevolence. The best episode of the five I watched sees Callie and Mariana's earnest moms (The Fosters' Sherri Saum and Teri Polo) visit the Coterie and experience all its weirdness within, including accidentally ingesting potent edibles and taking part in a wacky improv performance. It's a lot more fun to sit through than a schmaltzy, half-baked legal plotline.
-                </p><p> 
-                    Keep that in mind, for as girl-power zippy as this show is, it's a bit of a cognitive exercise to get through. (Given pilot director John M. Chiu's dizzying camera and jumpy editing, I wouldn't recommend this is a background show.) The scripts consistently play with time, a jarring effect that makes your brain work harder than it should have to for something this glossy. In fact, the show's frequent flashbacks, cut-tos and in media res framing devices more than once gave me a Family Guy vibe. Bless this stress.
-                    
                 </p>
             </p>  
         </section>
@@ -69,5 +115,4 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
 </html>

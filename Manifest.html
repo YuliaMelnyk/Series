@@ -1,83 +1,121 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Manifest</title>
-        <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
 
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="utf-8">
+    <title>Manifest</title>
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-   
-    <body style="background-color: #f5f6f6">
-        <div class="page-content container is-fullhd">
-             <!-- block for title -->
-            <div class="columns is-centered is-mobile is-spaced--medium">
-                <div class="column is-6-tablet is-12-mobile">
-                    <div class="page-content--block">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+        // put values from xml to html   
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                manifestTitle(this);
+                manifestDesc(this);
+                manifestIMG(this);
+            }
+        };
+        xhttp.open("GET", "series.xml", true);
+        xhttp.send();
+        // function for get Manifest title
+        function manifestTitle(xml) {
+            var x, i, txt, xmlDoc;
+            xmlDoc = xml.responseXML;
+            txt = "";
+            x = xmlDoc.getElementsByTagName("title");
+            for (i = 0; i < x.length; i++) {
+                if (i == 3) {
+                    txt += x[i].childNodes[0].nodeValue + "<br>";
+                }
+            }
+            document.getElementById("manifestTitle").innerHTML = txt;
+        }
+        // function for get Manifest description
+        function manifestDesc(xml) {
+            var x, i, txt, xmlDoc;
+            xmlDoc = xml.responseXML;
+            txt = "";
+            x = xmlDoc.getElementsByTagName("review");
+            for (i = 0; i < x.length; i++) {
+                if (i == 3) {
+                    txt += x[i].childNodes[0].nodeValue + "<br>";
+                }
+            }
+
+            document.getElementById("manifestDesc").innerHTML = txt;
+        }
+        // function for get Manifest link
+        function manifestIMG(xml) {
+            var x, i, txt, xmlDoc;
+            xmlDoc = xml.responseXML;
+            txt = "";
+            x = xmlDoc.getElementsByTagName("image");
+            for (i = 0; i < x.length; i++) {
+                if (i == 3) {
+                    txt += x[i].childNodes[0].nodeValue + "<br>";
+                }
+            }
+
+            document.getElementById("manifestImg").getAttribute("src").innerHTML = txt;
+        } 
+    </script>
+</head>
+
+
+<body style="background-color: #f5f6f6">
+    <div class="page-content container is-fullhd">
+        <!-- block for title -->
+        <div class="columns is-centered is-mobile is-spaced--medium">
+            <div class="column is-6-tablet is-12-mobile">
+                <div class="page-content--block">
                     <h1 class="page-content--title">
                         <div class="colums is-spaced--medium">
-                            <div class="column" id="manifestTitle">
-                                Think “Lost,” but without an island, a smoke monster or donkey wheel.
-                            </div>
+                            <div class="column" id="manifestTitle"></div>
                         </div>
                     </h1>
                 </div>
+            </div>
+        </div>
+        <!-- block for image -->
+        <div class="columns is-centered is-spaced--large">
+            <div class="column is-9">
+                <div class="page-content--block">
+                    <figure class="page-content--primary-image">
+                        <img id="manifestImg" style="width: 100%;"
+                            src="https://pmcvariety.files.wordpress.com/2018/08/manifest.jpg?w=681&h=383&crop=1">
+                    </figure>
                 </div>
             </div>
-               <!-- block for image -->
-<div class="columns is-centered is-spaced--large">
-    <div class="column is-9">
-        <div class="page-content--block">
-            <figure class="page-content--primary-image">
-                <img id="manifestImg" style="width: 100%;" src="https://pmcvariety.files.wordpress.com/2018/08/manifest.jpg?w=681&h=383&crop=1">
-            </figure>
+        </div>
+
+        <!-- block for description -->
+        <div class="columns is-centered is-spaced--large">
+            <!--element HTML5 -->
+            <section class="column is-6">
+                <section class="page-content--block_editor-content js--reframe">
+                    <p class="description" id="manifestDesc">
+
+                    </p>
+                </section>
+            </section>
         </div>
     </div>
-</div>
-
- <!-- block for description -->
-<div class="columns is-centered is-spaced--large">
-    <!--element HTML5 -->
-    <section class="column is-6">
-        <section class="page-content--block_editor-content js--reframe">
-            <p class="description" id="manifestDesc">
-                Flight delays are all too frequent for today’s travelers. It’s bad enough being sardined into a coach seat in a virus-spreading tube full of fellow humanoids.
-
-                NBC’s Manifest, premiering Monday, Sept. 24th at 9 p.m. (central) following the latest restart of The Voice, offers the mother of all late arrivals. After taking off from Montego Bay, Jamaica on April 7, 2013, Montego Airways Flight 828 finally touches down in New York on Nov. 4, 2018. Talk about missing your connecting flight. And holy Trump presidency! But that’s not referenced in the pilot episode, which is all that NBC made available for review.
-                
-            </br> A total of 191 passengers are on board. And they’re treated to some brief, but heavy in-flight turbulence, with the plane shaking, rattling, rolling while the lights go out and everybody has a good yell or scream. The friendly captain then references a severe weather disturbance that for whatever reason didn’t show up on the radar. And now back to your movie.
-                
-        </br> The Stone family initially is at center stage. Ben (Josh Dallas), his leukemia-afflicted son, Cal (Jack Messina), and his troubled sister, Michaela Beth (Melissa Roxburgh), elect to jettison their overbooked flight and take a later one in return for $400 vouchers. Ben’s wife, Grace (Athena Karkanis), their daughter, Olive (Luna Blaise) and her grandma and grandpa take the earlier plane, which arrives as scheduled.
-                
-    </br>   So what happened beyond everybody else getting five-and-a-half years older while the FL 191 crew and passengers stayed as is and now are starting to hear voices in their heads?
-                
-</br>   Episode One is well-made and poses many more questions than answers. But you know the drill. What if the ratings crash-land and NBC in turns grounds Manifest without ever resolving much of anything? There goes your investment in a manner befitting a Ponzi scheme. Life is so much simpler when you can just binge an entire season of episodes on a streaming site rather than hoping a broadcast will keep doling them out.
-                
-                Michaela, who’s also a cop, had been urged by her parents and brother to go ahead and marry detective Jared Vasquez (J. R. Ramirez). But she was still having issues at the time. And now that she’s ready to take the plunge, he’s grown older, had given Michaela up for dead and has moved on. Ben’s wife also has a little somethin’ somethin’ goin’ on, but the particulars are still awaiting a future episode.
-                
-                Roxburgh is effective in the lead role while her co-stars (including Parveen Kaur as a medical researcher named Saanvi) so far are making lesser impressions. The first episode ends with Michaela’s narrative advisory that “this was just the beginning.”
-                
-            </br>  Viewers have heard variations on this before, only to be strung along and then jilted by a cancellation that left just about everything hanging. Even so, Manifest is worth a look, with the proviso that the only way it will last is if enough people see reasons to keep watching.
-                
-            </p>
-        </section>
-    </section>
-</div>
-</div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+
 </html>

@@ -1,67 +1,120 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Devs</title>
-        <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
 
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="utf-8">
+    <title>Devs</title>
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-   
-    <body style="background-color: #f5f6f6">
-        <div class="page-content container is-fullhd">
-             <!-- block for title -->
-            <div class="columns is-centered is-mobile is-spaced--medium">
-                <div class="column is-6-tablet is-12-mobile">
-                    <div class="page-content--block">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+
+        // put values from xml to Devs.html   
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                devsTitle(this);
+                devsDesc(this);
+                devsIMG(this);
+            }
+        };
+        xhttp.open("GET", "series.xml", true);
+        xhttp.send();
+
+        // function for get Devs title
+        function devsTitle(xml) {
+            var x, i, txt, xmlDoc;
+            xmlDoc = xml.responseXML;
+            txt = "";
+            x = xmlDoc.getElementsByTagName("title");
+
+            txt += x[0].childNodes[0].nodeValue + "<br>";
+
+            document.getElementById("devsTitle").innerHTML = txt;
+        }
+
+        // function for get Devs description
+        function devsDesc(xml) {
+            var x, i, txt, xmlDoc;
+            xmlDoc = xml.responseXML;
+            txt = "";
+            x = xmlDoc.getElementsByTagName("review");
+
+            txt += x[0].childNodes[0].nodeValue + "<br>";
+
+            document.getElementById("devsDesc").innerHTML = txt;
+        }
+        // function for get Devs image link
+        function devsIMG(xml) {
+            var x, i, txt, xmlDoc;
+            xmlDoc = xml.responseXML;
+            txt = "";
+            x = xmlDoc.getElementsByTagName("image");
+
+            txt += x[0].childNodes[0].nodeValue + "<br>";
+
+            document.getElementById("devsImg").getAttribute("src").innerHTML = txt;
+        }
+
+    </script>
+</head>
+
+
+<body style="background-color: #f5f6f6">
+    <div class="page-content container is-fullhd">
+        <!-- block for title -->
+        <div class="columns is-centered is-mobile is-spaced--medium">
+            <div class="column is-6-tablet is-12-mobile">
+                <div class="page-content--block">
                     <h1 class="page-content--title">
                         <div class="colums is-spaced--medium">
                             <div class="column" id="devsTitle">
-                                
+
                             </div>
                         </div>
                     </h1>
                 </div>
+            </div>
+        </div>
+        <!-- block for image -->
+        <div class="columns is-centered is-spaced--large">
+            <div class="column is-9">
+                <div class="page-content--block">
+                    <figure class="page-content--primary-image">
+                        <img id="devsImg" style="width: 100%;"
+                            src="https://static.rogerebert.com/uploads/blog_post/primary_image/streaming/alex-garland-wants-to-break-your-brain-with-the-brilliant-devs/01_Sonoya_Actor_spread_re.01_copy.jpg">
+                    </figure>
                 </div>
             </div>
-               <!-- block for image -->
-<div class="columns is-centered is-spaced--large">
-    <div class="column is-9">
-        <div class="page-content--block">
-            <figure class="page-content--primary-image">
-                <img id="devsImg" style="width: 100%;" src="https://static.rogerebert.com/uploads/blog_post/primary_image/streaming/alex-garland-wants-to-break-your-brain-with-the-brilliant-devs/01_Sonoya_Actor_spread_re.01_copy.jpg">
-            </figure>
+        </div>
+
+        <!-- block for description -->
+        <div class="columns is-centered is-spaced--large">
+            <!--element HTML5 -->
+            <section class="column is-6">
+                <section class="page-content--block_editor-content js--reframe">
+                    <p class="description" id="devsDesc">
+
+                    </p>
+                </section>
+            </section>
         </div>
     </div>
-</div>
-
- <!-- block for description -->
-<div class="columns is-centered is-spaced--large">
-    <!--element HTML5 -->
-    <section class="column is-6">
-        <section class="page-content--block_editor-content js--reframe">
-            <p class="description" id="devsDesc">
-                
-            </p>
-        </section>
-    </section>
-</div>
-</div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>

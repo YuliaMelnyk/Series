@@ -10,7 +10,64 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <script>
+                // put values from xml to html   
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    littleTitle(this);
+    littleDesc(this);
+    littleIMG(this);
+  }
+};
+
+xhttp.open("GET", "series.xml", true);
+xhttp.send();
+
+// function for get Little_fires title
+function littleTitle(xml) {
+  var x, i, txt, xmlDoc;
+  xmlDoc = xml.responseXML;
+  txt = "";
+  x = xmlDoc.getElementsByTagName("title");
+  for (i = 0; i < x.length; i++) {
+    if (i == 1) {
+      txt += x[i].childNodes[0].nodeValue + "<br>";
+    }
+  }
+  document.getElementById("littleTitle").innerHTML = txt;
+}
+// function for get Little_fires description
+function littleDesc(xml) {
+  var x, i, txt, xmlDoc;
+  xmlDoc = xml.responseXML;
+  txt = "";
+  x = xmlDoc.getElementsByTagName("review");
+  for (i = 0; i < x.length; i++) {
+    if (i == 1) {
+      txt += x[i].childNodes[0].nodeValue + "<br>";
+    }
+  }
+
+  document.getElementById("littleDesc").innerHTML = txt;
+}
+// function for get Little_fires link
+function littleIMG(xml) {
+  var x, i, txt, xmlDoc;
+  xmlDoc = xml.responseXML;
+  txt = "";
+  x = xmlDoc.getElementsByTagName("image");
+  for (i = 0; i < x.length; i++) {
+    if (i == 1) {
+      txt += x[i].childNodes[0].nodeValue + "<br>";
+    }
+  }
+
+  document.getElementById("littleImg").getAttribute("src").innerHTML = txt;
+}
+            </script>
+
     </head>
 
    
@@ -23,7 +80,7 @@
                     <h1 class="page-content--title">
                         <div class="colums is-spaced--medium">
                             <div class="column" id="littleTitle">
-                                'Little Fires Everywhere' Finds Families Ready To Collide
+                                
                             </div>
                         </div>
                     </h1>
@@ -47,20 +104,7 @@
     <section class="column is-6">
         <section class="page-content--block_editor-content js--reframe">
             <p class="description" id="littleDesc">
-                The great frustration of Little Fires Everywhere, the Hulu adaptation of Celeste Ng's popular novel, is that of the eight episodes, they only made seven available for review.
-
-            <p>It matters because Little Fires Everywhere is a story of collision. Mia (Kerry Washington) and her daughter Pearl (Lexi Underwood), temporarily living in their car, come to Shaker Heights, Ohio. They collide with the wealthy Elena Richardson (Reese Witherspoon), who has a house to rent. Mia and Pearl become entangled with Elena and her husband and four children, and eventually, even their friends can't avoid each other.
-            
-            Those who have seen Big Little Lies will recognize Elena as a more malevolent version of the wealthy, driven, status-obsessed mother Witherspoon she plays there. Ohio and not Monterey, and yet recognizably similar. Those who have seen Scandal may even recognize Mia as a much less well-connected version of the driven survivor Washington plays there. Putting the very different energies of these actresses in conversation with each other is a good, promising idea.
-
-        </p><p> Much of the story also takes place in the complex emotional lives of Elena and Mia's children. In particular, Mia worries over the attachment Pearl quickly forms to the Richardsons, and to their nice big house and their leisure time and their stability. Elena is baffled by her youngest, a budding artist and raw nerve named Izzy (Megan Stott), who gravitates toward Mia, both because she's an artist and because she's almost as skeptical of Elena as Izzy is.
-
-The series doesn't quite feel solid, in part because as it progresses, Elena becomes more unambiguously awful. It's a better show when it feels like two very different mothers with very different cards to play, trying in their own ways to offer the parenting they think is needed. But a plot development involving a co-worker of Mia's and a friend of Elena's winds up unbalancing their relationship. While this creates a certain tension, it's hard to know whether that tension will find any resolution.
-
-</p><p>But again, this is the frustration: The point is that the first seven episodes build and build the pressure on and among all these characters and the worlds they inhabit. Pearl and Izzy feel rejected by their mothers; Elena and Mia feel pushed away by their daughters. Elena's other daughter Lexi is pushed to confront her own privilege, while her brothers Trip and Moody have different attachments to Pearl and different ways of treating her well and poorly. It builds and builds, and either the series sticks the landing in that last episode and it feels worth the ride, or it doesn't, and it doesn't.
-
-With some series, this feels less important. In some cases, the pleasures of a show are such that there's less of a nagging concern over whether it will successfully tie itself together. But this one feels just unsteady enough that if it doesn't land on a coherent final chord, it won't hold together as a whole. The caliber of performers and the strength of the source material makes me optimistic. But in a series about collision, not getting to see what happens when everything collides makes it hard to feel like you've seen it at all.
-
+                
 </p>
             </p>
         </section>
@@ -76,5 +120,4 @@ With some series, this feels less important. In some cases, the pleasures of a s
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
 </html>

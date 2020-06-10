@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="movies">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="series"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="series">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="serie"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="serie">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="id"/>
+                <xs:element ref="name"/>
+                <xs:element ref="country"/>
+                <xs:element ref="desc"/>
+                <xs:element ref="genre"/>
+                <xs:element ref="notes"/>
+                <xs:element ref="images"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="id" type="xs:integer"/>
+    <xs:element name="name" type="xs:string"/>
+    <xs:element name="country" type="xs:NCName"/>
+    <xs:element name="desc">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="title"/>
+                <xs:element ref="en"/>
+                <xs:element ref="es"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="title" type="xs:string"/>
+    <xs:element name="en" type="xs:string"/>
+    <xs:element name="es" type="xs:string"/>
+    <xs:element name="genre" type="xs:NCName"/>
+    <xs:element name="notes" type="xs:string"/>
+    <xs:element name="images">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="image"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="image">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="url"/>
+            </xs:sequence>
+            <xs:attribute name="id" use="required" type="xs:integer"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="url" type="xs:anyURI"/>
+</xs:schema>

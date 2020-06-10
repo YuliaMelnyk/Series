@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import namespace="http://www.w3.org/2001/XMLSchema" schemaLocation="Example.xsd"/>
+    <xs:element name="movies">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="series">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="serie">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="id" type="xs:integer"/>
+                                        <xs:element name="name" type="xs:string"/>
+                                        <xs:element name="country" type="xs:NCName"/>
+                                        <xs:element name="desc">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="title" type="xs:string"/>
+                                                    <xs:element name="en" type="xs:string"/>
+                                                    <xs:element name="es" type="xs:string"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="genre" type="xs:NCName"/>
+                                        <xs:element name="notes" type="xs:string"/>
+                                        <xs:element name="images">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element maxOccurs="unbounded" name="image">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="url" type="xs:anyURI"/>
+                                                            </xs:sequence>
+                                                            <xs:attribute name="id" use="required" type="xs:integer"/>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

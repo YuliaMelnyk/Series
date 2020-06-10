@@ -10,9 +10,62 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <script>
+                // put values from xml to html   
+                var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function () {
+                  if (this.readyState == 4 && this.status == 200) {
+                    valleyTitle(this);
+                    valleyDesc(this);
+                    valleyImg(this);
+                  }
+              };
+              xhttp.open("GET", "series.xml", true);
+              xhttp.send();
+      
+              // function for get Valey title
+              function valleyTitle(xml) {
+                  var x, i, txt, xmlDoc;
+                  xmlDoc = xml.responseXML;
+                  txt = "";
+                  x = xmlDoc.getElementsByTagName("title");
+                  for (i = 0; i < x.length; i++) {
+                      if (i == 8) {
+                          txt += x[i].childNodes[0].nodeValue + "<br>";
+                      }
+                  }
+                  document.getElementById("valleyTitle").innerHTML = txt;
+              }
+      
+              // function for get Valey description
+              function valleyDesc(xml) {
+                  var x, i, txt, xmlDoc;
+                  xmlDoc = xml.responseXML;
+                  txt = "";
+                  x = xmlDoc.getElementsByTagName("review");
+                  for (i = 0; i < x.length; i++) {
+                      if (i == 8) {
+                          txt += x[i].childNodes[0].nodeValue + "<br>";
+                      }
+                  }
+                  document.getElementById("valleyDesc").innerHTML = txt;
+              }
+              // function for get Valey image link
+              function valleyImg(xml) {
+                  var x, i, txt, xmlDoc;
+                  xmlDoc = xml.responseXML;
+                  txt = "";
+                  x = xmlDoc.getElementsByTagName("image");
+                  for (i = 0; i < x.length; i++) {
+                      if (i == 8) {
+                          txt += x[i].childNodes[0].nodeValue + "<br>";
+                      }
+                  }
+                  document.getElementById("valleyImg").getAttribute("src").innerHTML = txt;
+              }
+          </script>
     </head>
-
    
     <body style="background-color: #f5f6f6">
         <div class="page-content container is-fullhd">
@@ -23,7 +76,6 @@
                     <h1 class="page-content--title">
                         <div class="colums is-spaced--medium">
                             <div class="column" id="valleyTitle">
-                                “Silicon Valley” Make For Best Comedy Hour on TV
                             </div>
                         </div>
                     </h1>
@@ -47,13 +99,6 @@
     <section class="column is-6">
         <section class="page-content--block_editor-content js--reframe">
             <p class="description" id="valleyDesc">
-                <p>
-                    The night starts with “Silicon Valley”, which picks up shortly after the end of last season (which was just released on Blu-ray and DVD, by the way, along with the third season of “Veep”, for those of you who need to catch up or like to collect your favorite shows). Pied Piper just blew everybody’s mind at the Techcrunch: Disrupt presentation, leading to dozens of bids to invest in their compression software. Life is good for the boys, but fortunes are quickly reversed by two major events. First, their investor, Peter Gregory, passes away, as Judge and his team needed to write the real-life passing of Christopher Evan Welch into their series. Losing Gregory (and the explanation of his death really is one of the best scenes in the series yet, turning real tragedy into something hysterical) forces the Pied Piper gang to look elsewhere for the bulk of their funding, a decision that leaves them totally adrift when Hooli gets back in their business.
-                </p><p>
-                    “Silicon Valley” has become a show about the intersection of intellectualism and male relationships. The guys of the Pied Piper group are undeniably brilliant, and yet they’re young enough to do childish things to one another and get fascinated by an app that just texts the word “bro” to other people. They are a modern take on “Revenge of the Nerds” if the characters in that movie were also eventual millionaires. Judge captures how these socially awkward creatures have become some of the most important and popular people in the world. But that doesn’t mean they know how to swing a bat or talk to girls. And even the successful ones are socially stunted. Chris Diamontopoulos is a fantastic addition this season as a multi-millionaire who lucked into his tech fortune and now wields it like a frat boy who won the lottery.
-                </p><p> 
-                    The cast of “Silicon Valley” was great last season, but they’re much more confident this season in the three episodes that were sent to press. Thomas Middleditch and T.J. Miller have a few scenes in the premiere in which they try to reverse-“neg” their competition that had me laughing out loud, while Martin Starr and Kumail Nanjiani have developed a reluctant friendship comedic chemistry that’s just perfect. There’s sort of a “fill-in” character for Gregory this season on whom I’m not yet sold after three episodes, but the saga of Pied Piper still promises to be one of the most interesting, and hysterical ones of the Spring.
-                </p>
             </p>  
         </section>
     </section>

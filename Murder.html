@@ -1,73 +1,119 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>How to Get Away with Murder</title>
-        <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
 
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+    <meta charset="utf-8">
+    <title>How to Get Away with Murder</title>
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
 
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-   
-    <body style="background-color: #f5f6f6">
-        <div class="page-content container is-fullhd">
-             <!-- block for title -->
-            <div class="columns is-centered is-mobile is-spaced--medium">
-                <div class="column is-6-tablet is-12-mobile">
-                    <div class="page-content--block">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+        // put values from xml to html   
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                murderTitle(this);
+                murderDesc(this);
+                murderIMG(this);
+            }
+        };
+        xhttp.open("GET", "series.xml", true);
+        xhttp.send();
+
+        // function for get HTGAWM title
+        function murderTitle(xml) {
+            var x, i, txt, xmlDoc;
+            xmlDoc = xml.responseXML;
+            txt = "";
+            x = xmlDoc.getElementsByTagName("title");
+            for (i = 0; i < x.length; i++) {
+                if (i == 4) {
+                    txt += x[i].childNodes[0].nodeValue + "<br>";
+                }
+            }
+            document.getElementById("murderTitle").innerHTML = txt;
+        }
+
+        // function for get HTGAWM description
+        function murderDesc(xml) {
+            var x, i, txt, xmlDoc;
+            xmlDoc = xml.responseXML;
+            txt = "";
+            x = xmlDoc.getElementsByTagName("review");
+            for (i = 0; i < x.length; i++) {
+                if (i == 4) {
+                    txt += x[i].childNodes[0].nodeValue + "<br>";
+                }
+            }
+            document.getElementById("maurdertDesc").innerHTML = txt;
+        }
+        // function for get HTGAWM image link
+        function murderIMG(xml) {
+            var x, i, txt, xmlDoc;
+            xmlDoc = xml.responseXML;
+            txt = "";
+            x = xmlDoc.getElementsByTagName("image");
+            for (i = 0; i < x.length; i++) {
+                if (i == 4) {
+                    txt += x[i].childNodes[0].nodeValue + "<br>";
+                }
+            }
+            document.getElementById("murdertImg").getAttribute("src").innerHTML = txt;
+        }
+    </script>
+</head>
+
+<body style="background-color: #f5f6f6">
+    <div class="page-content container is-fullhd">
+        <!-- block for title -->
+        <div class="columns is-centered is-mobile is-spaced--medium">
+            <div class="column is-6-tablet is-12-mobile">
+                <div class="page-content--block">
                     <h1 class="page-content--title">
                         <div class="colums is-spaced--medium">
                             <div class="column" id="murderTitle">
-                               
+
                             </div>
                         </div>
                     </h1>
                 </div>
+            </div>
+        </div>
+        <!-- block for image -->
+        <div class="columns is-centered is-spaced--large">
+            <div class="column is-9">
+                <div class="page-content--block">
+                    <figure class="page-content--primary-image">
+                        <img id="murdertImg" style="width: 100%;"
+                            src="https://static.rogerebert.com/uploads/blog_post/primary_image/streaming/tv-review-abcs-how-to-get-away-with-murder-and-black-ish/136348_GROUPr4_pre.jpg">
+                    </figure>
                 </div>
             </div>
-               <!-- block for image -->
-<div class="columns is-centered is-spaced--large">
-    <div class="column is-9">
-        <div class="page-content--block">
-            <figure class="page-content--primary-image">
-                <img id="murdertImg" style="width: 100%;" src="https://static.rogerebert.com/uploads/blog_post/primary_image/streaming/tv-review-abcs-how-to-get-away-with-murder-and-black-ish/136348_GROUPr4_pre.jpg">
-            </figure>
+        </div>
+
+        <!-- block for description -->
+        <div class="columns is-centered is-spaced--large">
+            <!--element HTML5 -->
+            <section class="column is-6">
+                <section class="page-content--block_editor-content js--reframe">
+                    <p class="description" id="maurdertDesc"> </p>
+                </section>
+            </section>
         </div>
     </div>
-</div>
-
- <!-- block for description -->
-<div class="columns is-centered is-spaced--large">
-    <!--element HTML5 -->
-    <section class="column is-6">
-        <section class="page-content--block_editor-content js--reframe">
-            <p class="description" id="maurdertDesc">
-                <p>
-                Far less essential but still entertaining is the next night’s “How to Get Away with Murder,” starring the always-fantastic Viola Davis as Professor Annalise Keating, the kind of Criminal Law teacher who apologizes to her students for the mistakes they must have made to get stuck in the toughest class in school. Keating is driven to the point of abuse, insulting the intelligence of her students on day one, trying to put pressure on her kids to weed out the ones who couldn’t make it in a courtroom. She even has them work an active case before opening a book, forcing them each to come up with a unique defense for her client. The best arguments win positions at her law firm. But each one has to be different. The point is clear: it's not about the law, but the most creative way to defend your client.
-            </p><p>
-                Candidates for the job include the wide-eyed but naïve Wes Gibbins (Alfred Enoch), confident Michaela Pratt (Aja Naomi King), tricky Connor Walsh (Jack Falahee), quiet Laurel (Karla Souza) and snobby Asher (Matt McGorry). They work with two of Keating’s assistants: Frank (Charlie Weber) and Bonnie (Liza Weil).
-                        It’s a lot of names and faces to introduce an audience to in episode one, and the clutter is enhanced by the fact that we learn that Annalise’s best and brightest eventually get involved in something murderous of their own. The premiere opens with the students trying to hide a body, flashing back to their first day in Keating’s class along the way. Did Annalise really teach her students “How to Get Away with Murder”? It’s hard to say how long this structure will last. Will we jump forward next week or will the show take place in two timelines all season? And then shoving an actual mystery-of-the-week in there too? “How to Get Away with Murder” is a crowded show, a fact that the producers try to discuss by editing like a music video. This thing flies, with more cuts than your average sports broadcast. I’ll say that I watched it twice (an original, less-hyper version and the revised one) and it felt much shorter than its running time both times. However, it’s a show that needs to slow down and catch its breath soon or viewers will be more exhausted than entertained.
-            </p><p> 
-                I’m also hoping it slows down long enough for Davis to shine. She has a few beats here that feel overcooked—her classroom introductory scene is so far over-the-top that it shatters belief—but she already shows signs of the well-rounded character I expect she’ll develop, especially in the quieter beats, such as after a student catches her in an intimate moment. Davis is such a phenomenal actress that it’s tempting and easy to say that she’s better than the material she’s given here, but hopefully she can elevate the show around to her level. She does so often enough in the premiere that I’m willing to see if she can keep it up.
-            </p>
-            </p>  
-        </section>
-    </section>
-</div>
-</div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-<script src="js/main.js"></script>
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
 </html>
